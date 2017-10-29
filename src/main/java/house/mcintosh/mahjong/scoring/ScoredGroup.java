@@ -2,6 +2,7 @@ package house.mcintosh.mahjong.scoring;
 
 import house.mcintosh.mahjong.model.Group;
 import house.mcintosh.mahjong.model.Tile;
+import house.mcintosh.mahjong.model.Wind;
 import house.mcintosh.mahjong.scoring.ScoringScheme.ScoreElement;
 
 /**
@@ -12,7 +13,7 @@ public class ScoredGroup extends Group
 {
 	private final ScoreList	m_score;
 	
-	public ScoredGroup(Group set, ScoringScheme scheme, Tile.Wind ownWind, Tile.Wind prevailingWind)
+	public ScoredGroup(Group set, ScoringScheme scheme, Wind ownWind, Wind prevailingWind)
 	{
 		super(set);
 		
@@ -42,7 +43,7 @@ public class ScoredGroup extends Group
 		return m_score;
 	}
 	
-	private ScoreList scorePair(ScoringScheme scheme, Tile.Wind ownWind, Tile.Wind prevailingWind)
+	private ScoreList scorePair(ScoringScheme scheme, Wind ownWind, Wind prevailingWind)
 	{
 		switch (getTileType())
 		{
@@ -50,7 +51,7 @@ public class ScoredGroup extends Group
 			return scheme.getScoreContribution(ScoreElement.PairSuitScore);
 		case WIND:
 			{
-				Tile.Wind wind = getFirstTile().getWind();
+				Wind wind = getFirstTile().getWind();
 				if (wind == ownWind)
 					return scheme.getScoreContribution(ScoreElement.PairOwnWindScore);
 				if (wind == prevailingWind)
@@ -66,7 +67,7 @@ public class ScoredGroup extends Group
 		}
 	}
 	
-	private ScoreList scoreChow(ScoringScheme scheme, Tile.Wind ownWind, Tile.Wind prevailingWind)
+	private ScoreList scoreChow(ScoringScheme scheme, Wind ownWind, Wind prevailingWind)
 	{
 		switch (getTileType())
 		{
@@ -79,7 +80,7 @@ public class ScoredGroup extends Group
 		}
 	}
 	
-	private ScoreList scorePung(ScoringScheme scheme, Tile.Wind ownWind, Tile.Wind prevailingWind)
+	private ScoreList scorePung(ScoringScheme scheme, Wind ownWind, Wind prevailingWind)
 	{
 		Tile	tile		= getFirstTile();
 		boolean concealed	= isConcealed();
@@ -96,7 +97,7 @@ public class ScoredGroup extends Group
 			
 		case WIND:
 			{
-				Tile.Wind wind = tile.getWind();
+				Wind wind = tile.getWind();
 				if (wind == ownWind && wind == prevailingWind)
 					return concealed	? scheme.getScoreContribution(ScoreElement.PungConcealedPrevailingOwnWindScore)	: scheme.getScoreContribution(ScoreElement.PungExposedPrevailingOwnWindScore);
 				if (wind == ownWind)
@@ -116,7 +117,7 @@ public class ScoredGroup extends Group
 		}
 	}
 	
-	private ScoreList scoreKong(ScoringScheme scheme, Tile.Wind ownWind, Tile.Wind prevailingWind)
+	private ScoreList scoreKong(ScoringScheme scheme, Wind ownWind, Wind prevailingWind)
 	{
 		Tile	tile		= getFirstTile();
 		boolean concealed	= isConcealed();
@@ -133,7 +134,7 @@ public class ScoredGroup extends Group
 			
 		case WIND:
 			{
-				Tile.Wind wind = tile.getWind();
+				Wind wind = tile.getWind();
 				if (wind == ownWind && wind == prevailingWind)
 					return concealed	? scheme.getScoreContribution(ScoreElement.KongConcealedPrevailingOwnWindScore)	: scheme.getScoreContribution(ScoreElement.KongExposedPrevailingOwnWindScore);
 				if (wind == ownWind)

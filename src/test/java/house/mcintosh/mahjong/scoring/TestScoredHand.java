@@ -12,6 +12,7 @@ import org.junit.Test;
 import house.mcintosh.mahjong.exception.InvalidHandException;
 import house.mcintosh.mahjong.model.Group;
 import house.mcintosh.mahjong.model.Tile;
+import house.mcintosh.mahjong.model.Wind;
 
 public class TestScoredHand
 {
@@ -25,22 +26,22 @@ public class TestScoredHand
 		List<ScoredGroup> sets	= new ArrayList<>();
 		ScoringScheme		scheme	= ScoringScheme.instance();
 		
-		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Dragon.RED), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.GREEN), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Wind.EAST), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Wind.SOUTH), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Wind.WEST), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FIVE), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.EIGHT), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CHARACTERS, Tile.Number.TWO), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CIRCLES, Tile.Number.SIX), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Dragon.WHITE)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Wind.EAST)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Wind.NORTH), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FOUR)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
-		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.CIRCLES, Tile.Number.ONE)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Dragon.RED), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.GREEN), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Wind.EAST), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Wind.SOUTH), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Wind.WEST), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FIVE), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.EIGHT), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CHARACTERS, Tile.Number.TWO), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CIRCLES, Tile.Number.SIX), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Dragon.WHITE)), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Wind.EAST)), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Wind.NORTH), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FOUR)), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN)), scheme, Wind.EAST, Wind.EAST));
+		sets.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.CIRCLES, Tile.Number.ONE)), scheme, Wind.EAST, Wind.EAST));
 		
 		int iterations = 1000;
 		
@@ -56,54 +57,54 @@ public class TestScoredHand
 		ScoringScheme		scheme	= ScoringScheme.instance();
 		ScoredHand		hand	= new ScoredHand(scheme);
 		
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Dragon.RED), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Dragon.RED), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(4*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CHARACTERS, Tile.Number.TWO), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CHARACTERS, Tile.Number.TWO), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(4*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals((4+16)*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Wind.EAST)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Wind.EAST)), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals((4+16+2)*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Wind.SOUTH), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Wind.SOUTH), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
 		assertTrue(hand.isMahjong());
 		assertEquals((10+4+16+2+4)*2, hand.getTotalScoreUnlimited());
 		
 
 		hand = new ScoredHand(scheme);
-		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Dragon.WHITE)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Dragon.WHITE)), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CIRCLES, Tile.Number.SIX), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CIRCLES, Tile.Number.SIX), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Wind.WEST), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Wind.WEST), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals((2+16), hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.GREEN), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.GREEN), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals((2+16+32)*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Wind.EAST), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Wind.EAST), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
 		assertTrue(hand.isMahjong());
 		assertEquals((10+2+16+32+16)*2*2*2*2, hand.getTotalScoreUnlimited());
 
 		hand = new ScoredHand(scheme);
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FIVE), Group.Visibility.CONCEALED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FIVE), Group.Visibility.CONCEALED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(4, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.EIGHT), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.EIGHT), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(4+2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Wind.NORTH), Group.Visibility.EXPOSED), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Wind.NORTH), Group.Visibility.EXPOSED), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(4+2+16, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FOUR)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CHARACTERS, Tile.Number.FOUR)), scheme, Wind.EAST, Wind.EAST));
 		assertFalse(hand.isMahjong());
 		assertEquals(4+2+16, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN)), scheme, Tile.Wind.EAST, Tile.Wind.EAST));
+		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN)), scheme, Wind.EAST, Wind.EAST));
 		assertTrue(hand.isMahjong());
 		assertEquals(10+4+2+16, hand.getTotalScoreUnlimited());
 	}
@@ -116,19 +117,19 @@ public class TestScoredHand
 		
 
 		hand = new ScoredHand(scheme);
-		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Dragon.WHITE)), scheme, Tile.Wind.NORTH, Tile.Wind.NORTH));
+		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Dragon.WHITE)), scheme, Wind.NORTH, Wind.NORTH));
 		assertFalse(hand.isMahjong());
 		assertEquals(2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Wind.NORTH), Group.Visibility.CONCEALED), scheme, Tile.Wind.NORTH, Tile.Wind.NORTH));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Wind.NORTH), Group.Visibility.CONCEALED), scheme, Wind.NORTH, Wind.NORTH));
 		assertFalse(hand.isMahjong());
 		assertEquals((2+32)*2*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.RED), Group.Visibility.CONCEALED), scheme, Tile.Wind.NORTH, Tile.Wind.NORTH));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.RED), Group.Visibility.CONCEALED), scheme, Wind.NORTH, Wind.NORTH));
 		assertFalse(hand.isMahjong());
 		assertEquals((2+32+32)*2*2*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.GREEN), Group.Visibility.CONCEALED), scheme, Tile.Wind.NORTH, Tile.Wind.NORTH));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Dragon.GREEN), Group.Visibility.CONCEALED), scheme, Wind.NORTH, Wind.NORTH));
 		assertFalse(hand.isMahjong());
 		assertEquals((2+32+32+32)*2*2*2*2, hand.getTotalScoreUnlimited());
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Wind.EAST), Group.Visibility.CONCEALED), scheme, Tile.Wind.NORTH, Tile.Wind.NORTH));
+		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Wind.EAST), Group.Visibility.CONCEALED), scheme, Wind.NORTH, Wind.NORTH));
 		assertTrue(hand.isMahjong());
 		assertEquals((10+2+32+32+32+32)*2*2*2*2*2*2, hand.getTotalScoreUnlimited());
 		assertEquals(scheme.LimitScore, hand.getTotalScore());

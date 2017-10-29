@@ -25,11 +25,6 @@ public final class Tile
 		}
 	}
 
-	public enum Wind
-	{
-		EAST, SOUTH, WEST, NORTH
-	}
-
 	public enum Dragon
 	{
 		RED, GREEN, WHITE

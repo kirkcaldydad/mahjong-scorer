@@ -21,8 +21,8 @@ import javafx.collections.transformation.SortedList;
 public class ScoredHand implements Iterable<ScoredGroup>
 {
 	private final ScoringScheme					m_scheme;
-	private final ObservableList<ScoredGroup>	m_backingSets;
-	private final SortedList<ScoredGroup>		m_sortedSets;
+	private final ObservableList<ScoredGroup>	m_backingGroups;
+	private final SortedList<ScoredGroup>		m_sortedGroups;
 	
 	private ScoreList							m_scores;
 	
@@ -42,16 +42,16 @@ public class ScoredHand implements Iterable<ScoredGroup>
 	private int		m_totalScoreUnlimited		= 0;
 	private int		m_totalScoreLimited			= 0;
 	
-	protected ScoredHand(ScoringScheme scheme)
+	public ScoredHand(ScoringScheme scheme)
 	{
 		m_scheme		= scheme;
-		m_backingSets	= FXCollections.observableArrayList();
-		m_sortedSets	= new SortedList<ScoredGroup>(m_backingSets, new SetComparator());
+		m_backingGroups	= FXCollections.observableArrayList();
+		m_sortedGroups	= new SortedList<ScoredGroup>(m_backingGroups, new SetComparator());
 	}
 	
-	public void add(ScoredGroup set)
+	public void add(ScoredGroup group)
 	{
-		m_backingSets.add(set);
+		m_backingGroups.add(group);
 		updateScore();
 	}
 	
@@ -177,7 +177,7 @@ public class ScoredHand implements Iterable<ScoredGroup>
 	@Override
 	public Iterator<ScoredGroup> iterator()
 	{
-		return m_sortedSets.iterator();
+		return m_sortedGroups.iterator();
 	}
 	
 	public String toString()
@@ -212,7 +212,7 @@ public class ScoredHand implements Iterable<ScoredGroup>
 		int effectiveHandTiles	= 0;
 		int pairCount			= 0;
 		
-		for (ScoredGroup group : this.m_backingSets)
+		for (ScoredGroup group : this.m_backingGroups)
 		{
 			scores.append(group.getScore());
 			

@@ -106,7 +106,7 @@ public class TestSet
 	@Test
 	public void createPungWind()
 	{
-		Group chow = new Group(Group.Type.PUNG, new Tile(Tile.Wind.SOUTH), Group.Visibility.CONCEALED);
+		Group chow = new Group(Group.Type.PUNG, new Tile(Wind.SOUTH), Group.Visibility.CONCEALED);
 		
 		assertEquals(Group.Visibility.CONCEALED, chow.getVisibility());
 		
@@ -117,9 +117,9 @@ public class TestSet
 		assertEquals(Tile.Type.WIND,		tiles.get(1).getType());
 		assertEquals(Tile.Type.WIND,		tiles.get(2).getType());
 		
-		assertEquals(Tile.Wind.SOUTH,	tiles.get(0).getWind());
-		assertEquals(Tile.Wind.SOUTH,	tiles.get(1).getWind());
-		assertEquals(Tile.Wind.SOUTH,	tiles.get(2).getWind());
+		assertEquals(Wind.SOUTH,	tiles.get(0).getWind());
+		assertEquals(Wind.SOUTH,	tiles.get(1).getWind());
+		assertEquals(Wind.SOUTH,	tiles.get(2).getWind());
 	}
 	
 	@Test
