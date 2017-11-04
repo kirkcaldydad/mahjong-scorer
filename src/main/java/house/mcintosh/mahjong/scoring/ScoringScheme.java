@@ -102,8 +102,9 @@ public class ScoringScheme
 	
 	// Based on scores from http://mahjongbritishrules.com/scoring/overview.html
 	
-	int MahjongHandSize							= 14;
-	int LimitScore								= 1000;
+	public int MahjongHandSize	= 14;
+	public int LimitScore		= 1000;
+	public int InitialScore		= 2000;
 	
 	// Set scores
 	

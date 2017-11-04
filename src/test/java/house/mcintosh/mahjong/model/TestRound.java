@@ -22,10 +22,10 @@ public class TestRound
 		Player westPlayer	= Player.get("West Player");
 		Player northPlayer	= Player.get("North Player");
 		
-		round.addHand(eastPlayer, createMahjongHand136(Wind.EAST, prevailingWind), Wind.EAST);
-		round.addHand(southPlayer, createHand2(Wind.SOUTH, prevailingWind), Wind.SOUTH);
-		round.addHand(westPlayer, createHand4(Wind.WEST, prevailingWind), Wind.WEST);
-		round.addHand(northPlayer, createHand16(Wind.NORTH, prevailingWind), Wind.NORTH);
+		round.addHand(eastPlayer, RoundUtil.createMahjongHand136(Wind.EAST, prevailingWind), Wind.EAST);
+		round.addHand(southPlayer, RoundUtil.createHand2(Wind.SOUTH, prevailingWind), Wind.SOUTH);
+		round.addHand(westPlayer, RoundUtil.createHand4(Wind.WEST, prevailingWind), Wind.WEST);
+		round.addHand(northPlayer, RoundUtil.createHand16(Wind.NORTH, prevailingWind), Wind.NORTH);
 		
 		// Check the score for each player.
 		
@@ -53,10 +53,10 @@ public class TestRound
 		Player westPlayer	= Player.get("West Player");
 		Player northPlayer	= Player.get("North Player");
 		
-		round.addHand(eastPlayer, createHand2(Wind.EAST, prevailingWind), Wind.EAST);
-		round.addHand(southPlayer, createMahjongHand136(Wind.SOUTH, prevailingWind), Wind.SOUTH);
-		round.addHand(westPlayer, createHand4(Wind.WEST, prevailingWind), Wind.WEST);
-		round.addHand(northPlayer, createHand16(Wind.NORTH, prevailingWind), Wind.NORTH);
+		round.addHand(eastPlayer, RoundUtil.createHand2(Wind.EAST, prevailingWind), Wind.EAST);
+		round.addHand(southPlayer, RoundUtil.createMahjongHand136(Wind.SOUTH, prevailingWind), Wind.SOUTH);
+		round.addHand(westPlayer, RoundUtil.createHand4(Wind.WEST, prevailingWind), Wind.WEST);
+		round.addHand(northPlayer, RoundUtil.createHand16(Wind.NORTH, prevailingWind), Wind.NORTH);
 		
 		// Check the score for each player.
 		
@@ -84,10 +84,10 @@ public class TestRound
 		Player westPlayer	= Player.get("West Player");
 		Player northPlayer	= Player.get("North Player");
 		
-		round.addHand(eastPlayer, createHand2(Wind.EAST, prevailingWind), Wind.EAST);
-		round.addHand(southPlayer, createHand4(Wind.SOUTH, prevailingWind), Wind.SOUTH);
-		round.addHand(westPlayer, createMahjongHand136(Wind.WEST, prevailingWind), Wind.WEST);
-		round.addHand(northPlayer, createHand16(Wind.NORTH, prevailingWind), Wind.NORTH);
+		round.addHand(eastPlayer, RoundUtil.createHand2(Wind.EAST, prevailingWind), Wind.EAST);
+		round.addHand(southPlayer, RoundUtil.createHand4(Wind.SOUTH, prevailingWind), Wind.SOUTH);
+		round.addHand(westPlayer, RoundUtil.createMahjongHand136(Wind.WEST, prevailingWind), Wind.WEST);
+		round.addHand(northPlayer, RoundUtil.createHand16(Wind.NORTH, prevailingWind), Wind.NORTH);
 		
 		// Check the score for each player.
 		
@@ -102,58 +102,4 @@ public class TestRound
 		assertEquals(-136 +32-4+16-4, northScore);
 		assertEquals(0, eastScore + southScore + westScore + northScore);		
 	}
-	
-	private ScoredHand createMahjongHand136(Wind playerWind, Wind prevailingWind)
-	{
-		ScoringScheme scheme = ScoringScheme.instance();
-		
-		ScoredHand hand = new ScoredHand(scheme);
-		
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Dragon.RED), Group.Visibility.EXPOSED), scheme, playerWind, prevailingWind));
-		hand.add(new ScoredGroup(new Group(Group.Type.CHOW, new Tile(Tile.Suit.CHARACTERS, Tile.Number.TWO), Group.Visibility.CONCEALED), scheme, playerWind, prevailingWind));
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Suit.BAMBOO, Tile.Number.SEVEN), Group.Visibility.CONCEALED), scheme, playerWind, prevailingWind));
-		hand.add(new ScoredGroup(new Group(Group.Type.PAIR, new Tile(Tile.Suit.BAMBOO, Tile.Number.THREE)), scheme, playerWind, prevailingWind));
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Dragon.WHITE), Group.Visibility.EXPOSED), scheme, playerWind, prevailingWind));
-		assertTrue(hand.isMahjong());
-		assertEquals((10+4+16+4)*2*2, hand.getTotalScoreUnlimited());
-		
-		return hand;
-	}
-	
-	private ScoredHand createHand2(Wind playerWind, Wind prevailingWind)
-	{
-		ScoringScheme scheme = ScoringScheme.instance();
-		
-		ScoredHand hand = new ScoredHand(scheme);
-		
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.CHARACTERS, Tile.Number.TWO), Group.Visibility.EXPOSED), scheme, playerWind, prevailingWind));
-		assertEquals(2, hand.getTotalScoreUnlimited());
-		
-		return hand;
-	}
-	
-	private ScoredHand createHand4(Wind playerWind, Wind prevailingWind)
-	{
-		ScoringScheme scheme = ScoringScheme.instance();
-		
-		ScoredHand hand = new ScoredHand(scheme);
-		
-		hand.add(new ScoredGroup(new Group(Group.Type.PUNG, new Tile(Tile.Suit.BAMBOO, Tile.Number.THREE), Group.Visibility.CONCEALED), scheme, playerWind, prevailingWind));
-		assertEquals(4, hand.getTotalScoreUnlimited());
-		
-		return hand;
-	}
-
-	private ScoredHand createHand16(Wind playerWind, Wind prevailingWind)
-	{
-		ScoringScheme scheme = ScoringScheme.instance();
-		
-		ScoredHand hand = new ScoredHand(scheme);
-		
-		hand.add(new ScoredGroup(new Group(Group.Type.KONG, new Tile(Tile.Suit.CIRCLES, Tile.Number.NINE), Group.Visibility.EXPOSED), scheme, playerWind, prevailingWind));
-		assertEquals(16, hand.getTotalScoreUnlimited());
-		
-		return hand;
-	}
-
 }

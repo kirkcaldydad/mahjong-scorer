@@ -56,4 +56,10 @@ public class Player
 		
 		return m_name.equals(otherPlayer.m_name);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return m_name;
+	}
 }

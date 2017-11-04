@@ -1,10 +1,10 @@
 package house.mcintosh.mahjong.exception;
 
-public class InvalidModelException extends MahjongException
+public class InvalidGameStateException extends MahjongException
 {
 	private static final long serialVersionUID = 1L;
 
-	public InvalidModelException(String message)
+	public InvalidGameStateException(String message)
 	{
 		super(message);
 	}

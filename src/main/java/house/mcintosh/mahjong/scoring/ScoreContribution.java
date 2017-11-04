@@ -21,8 +21,11 @@ public class ScoreContribution
 		m_multiplier	= multiplier;
 		m_element		= element;
 	
-		if (score < 0 || multiplier < 1)
-			throw new InvalidScoreSchemeException();
+		if (score < 0)
+			throw new InvalidScoreSchemeException("Invalid score value");
+		
+		if (multiplier < 1)
+			throw new InvalidScoreSchemeException("Invalid score multiplier");
 	}
 	
 	final int getScore()
